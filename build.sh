@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function download_binary {
-	wget "https://github.com/ScerIO/musl-cross-make/releases/download/binary-files-v1.0/$1.tar.xz"
+	wget -q "https://github.com/ScerIO/musl-cross-make/releases/download/binary-files-v1.0/$1.tar.xz"
 	sudo tar -xJf "$1.tar.xz" -C /usr/local/
 	rm $1.tar.xz
 }
