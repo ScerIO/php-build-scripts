@@ -7,7 +7,7 @@ function download_binary {
 }
 
 function compile {
-	sudo ./compile.sh -u -l -g -t $1 -x -s -j4 -f
+	sudo ./compile.sh -g -t $1 -x -s -j4 -f
 	sudo mv install.log "install-$1.log"
 	cd bin/php7/bin
 	zip "../../../php-$1.zip" php php.ini
