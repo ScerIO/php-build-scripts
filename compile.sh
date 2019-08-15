@@ -217,6 +217,17 @@ if [ "$IS_CROSSCOMPILE" == "yes" ]; then
 		LDFLAGS="-static -static-libgcc -Wl,-static"
 		OPENSSL_TARGET="linux-aarch64"
 		echo "[INFO] Cross-compiling for Android ARMv8 (aarch64)"
+	elif [ "$COMPILE_TARGET" == "android-armv7" ]; then
+		COMPILE_FOR_ANDROID=yes
+		[ -z "$march" ] && march=armv7-a;
+		[ -z "$mtune" ] && mtune=cortex-a8;
+		TOOLCHAIN_PREFIX="arm-linux-musleabi"
+		CONFIGURE_FLAGS="--host=$TOOLCHAIN_PREFIX"
+		CFLAGS="-static $CFLAGS"
+		CXXFLAGS="-static $CXXFLAGS"
+		LDFLAGS="-static"
+		OPENSSL_TARGET="linux-armv4"
+		echo "[INFO] Cross-compiling for Android ARMv7"
 	#TODO: add cross-compile for aarch64 platforms (ios, rpi)
 	else
 		echo "Please supply a proper platform [mac win win64 android-aarch64] to cross-compile"
