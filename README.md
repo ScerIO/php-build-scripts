@@ -61,3 +61,9 @@ Batch script utilizing Visual Studio on Windows to compile PHP binaries from sou
 Ensure you have Visual Studio 2017, Windows 8.1 SDK, `git`, `7z` and `wget` installed in your PATH.
 
 Prebuilt binaries can be downloaded from our [AppVeyor build job](https://ci.appveyor.com/project/pmmp/php-build-scripts/build/artifacts).
+
+## Docker
+
+1. Build image `docker build -t php-build:latest .`
+2. Connect to container `docker run -it php-build  `
+3. For example run manual build `su -c "./compile.sh -t android-aarch64 -x -s -j4 -f"`
